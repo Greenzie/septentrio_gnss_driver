@@ -149,6 +149,7 @@ Compatiblity with PCAP captures are incorporated through [pcap libraries](https:
       heading: 0.0
       pitch: 0.0
     imu_orientation:
+      manual_mode: true
       theta_x: 0.0
       theta_y: 0.0
       theta_z: 0.0
@@ -330,9 +331,10 @@ The following is a list of ROSaic parameters found in the `config/rover.yaml` fi
         + `pitch`: Vertical offset can be compensated for by adjusting the `pitch` parameter
         + default: `0.0`, `0.0` (degrees)
       + `imu_orientation`: IMU sensor orientation
+        + `manual_mode`: Choose between using `SensorDefault` or `manual` orientation. If changes are made to `theta_x`, `theta_y`, `theta_z` then mode should be set to `manual`
         + Parameters `theta_x`, `theta_y` and `theta_z` are used to determine the sensor orientation with respect to the vehicle frame. Positive angles correspond to a right-handed (clockwise) rotation of the IMU with respect to its nominal orientation (see below). The order of the rotations is as follows: `theta_z` first, then `theta_y`, then `theta_x`.
         + The nominal orientation is where the IMU is upside up and with the `X axis` marked on the receiver pointing to the front of the vehicle.
-        + default: `0.0`, `0.0`, `0.0` (degrees)
+        + default: `true`, `0.0`, `0.0`, `0.0` (degrees)
       + `poi_to_imu`: The lever arm from the IMU reference point to a user-defined POI
         + Parameters `delta_x`,`delta_y` and `delta_z` refer to the vehicle reference frame
         + default: `0.0`, `0.0`, `0.0` (meters)
